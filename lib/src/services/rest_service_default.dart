@@ -44,12 +44,6 @@ class RestServiceDef implements RestServiceImpl {
 
   @override
   Future<SymbolTicker?> getIndiceTicker(String symbol) async {
-     var result = await _dio.get(AppUrls.symbolTickerDetail(symbol));
-
-      if (result.statusCode == 200) {
-        return SymbolTicker.fromRawJson(result.toString());
-      }
-      
     try {
       var result = await _dio.get(AppUrls.symbolTickerDetail(symbol));
 
